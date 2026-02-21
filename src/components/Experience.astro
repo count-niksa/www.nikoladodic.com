@@ -5,8 +5,13 @@ const jobs = [
     role: "Tech Team Lead Software Developer",
     period: "Sep 2023 — Present",
     location: "Pennsylvania, US",
-    description:
-      "Leading a development team building enterprise voice and communications systems. Driving architecture decisions, code quality standards, and technical direction across the engineering org.",
+    tags: ["C#", ".NET", "Azure", "SQL Server", "Team Lead"],
+    bullets: [
+      "Lead a development team delivering enterprise voice and communications platform software",
+      "Drive architecture decisions, establish code quality standards, and own technical direction",
+      "Design and implement features in C#/.NET with Azure cloud services and SQL Server backends",
+      "Conduct code reviews, mentor developers, and define sprint planning and delivery workflows",
+    ],
     highlight: true,
   },
   {
@@ -14,32 +19,48 @@ const jobs = [
     role: "Senior Software Developer",
     period: "Aug 2020 — Sep 2023",
     location: "Philadelphia, PA",
-    description:
-      "Designed and implemented core platform features in C#/.NET on Azure. Owned full delivery cycle from requirements through production deployment.",
+    tags: ["C#", "ASP.NET", "Azure", "SQL Server", "REST APIs"],
+    bullets: [
+      "Designed and built core platform modules in C#/ASP.NET deployed on Azure infrastructure",
+      "Owned features end-to-end: requirements gathering, database design, API development, deployment",
+      "Worked extensively with Microsoft SQL Server — schema design, stored procedures, performance tuning",
+      "Promoted to team lead based on consistent delivery and technical ownership",
+    ],
   },
   {
     company: "Sobot Software",
-    role: "Senior Developer → Team Lead",
+    role: "Software Developer → Senior Developer Team Lead",
     period: "Jul 2018 — Jun 2020",
     location: "Belgrade, Serbia",
-    description:
-      "Promoted from developer to team lead within 8 months. Managed a team delivering client-facing software products while maintaining hands-on development responsibilities.",
+    tags: ["C#", ".NET", "SQL Server", "Agile", "Team Lead"],
+    bullets: [
+      "Promoted from developer to team lead within 8 months — managed a team shipping client-facing products",
+      "Built and maintained .NET applications with SQL Server data layers",
+      "Balanced hands-on development with team management, code reviews, and sprint coordination",
+    ],
   },
   {
     company: "Intelisale",
     role: "Software Developer",
     period: "Mar 2017 — Jul 2018",
     location: "Belgrade, Serbia",
-    description:
-      "Built sales intelligence platform features. First full-time development role after completing self-taught transition into software engineering.",
+    tags: ["C#", ".NET", "SQL Server"],
+    bullets: [
+      "Developed features for a B2B sales intelligence platform in C#/.NET",
+      "Worked across the stack — backend services, database queries, and API integrations",
+    ],
   },
   {
     company: "Earlier Career",
     role: "Systems Engineer · Freelance Developer · Emirates Airline",
     period: "2008 — 2017",
-    location: "Dubai · Belgrade · Remote",
-    description:
-      "Systems engineering at Saga d.o.o., freelance development on Upwork, and three years as business class cabin crew at Emirates — building the global perspective, discipline, and communication skills that now define my leadership style.",
+    location: "Belgrade · Dubai · Remote",
+    tags: ["Systems Engineering", "Freelance", "International"],
+    bullets: [
+      "Systems engineering at Saga d.o.o. — infrastructure and deployment",
+      "Freelance .NET development on Upwork while transitioning into software full-time",
+      "3+ years at Emirates Airline (Business Class) — built communication, discipline, and global perspective",
+    ],
   },
 ];
 ---
@@ -84,9 +105,25 @@ const jobs = [
                 <h3 class="text-lg font-bold text-text-heading">{job.company}</h3>
                 <span class="font-mono text-xs text-text-muted">{job.period}</span>
               </div>
-              <p class="text-accent font-medium text-sm mb-1">{job.role}</p>
+              <p class="text-accent font-medium text-sm mb-2">{job.role}</p>
               <p class="font-mono text-xs text-text-muted/60 mb-3">{job.location}</p>
-              <p class="text-text-muted text-sm leading-relaxed">{job.description}</p>
+
+              <ul class="space-y-1.5 mb-4">
+                {job.bullets.map((bullet) => (
+                  <li class="flex items-start gap-2 text-text-muted text-sm leading-relaxed">
+                    <span class="text-accent mt-1 text-xs">&#9656;</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="flex flex-wrap gap-1.5">
+                {job.tags.map((tag) => (
+                  <span class="rounded border border-border bg-bg px-2 py-0.5 text-[11px] font-mono text-accent/80">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
