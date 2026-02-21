@@ -1,0 +1,56 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+  <!-- Radial glow -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px] pointer-events-none"
+    style="background: radial-gradient(circle, var(--color-accent) 0%, var(--color-accent-secondary) 50%, transparent 70%);"
+  ></div>
+
+  <div class="relative max-w-4xl text-center">
+    <p class="font-mono text-accent text-sm md:text-base mb-4 tracking-widest uppercase">
+      &gt; initializing<span class="cursor-blink">_</span>
+    </p>
+
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-text-heading leading-none mb-6">
+      Nikola
+      <span class="bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-transparent">
+        Dodic
+      </span>
+    </h1>
+
+    <p class="text-xl md:text-2xl text-text-muted font-light max-w-2xl mx-auto mb-4">
+      Tech Team Lead & Senior Software Developer
+    </p>
+
+    <p class="font-mono text-sm text-text-muted/70 mb-10">
+      .NET &middot; Azure &middot; C# &middot; SQL Server &middot; Team Leadership
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#experience"
+        class="glow-border group relative inline-flex items-center gap-2 rounded-lg bg-bg-card px-8 py-3 text-sm font-semibold text-text-heading transition-all hover:bg-bg-card-hover"
+      >
+        View my work
+        <svg class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 rounded-lg border border-border px-8 py-3 text-sm font-semibold text-text-muted transition-all hover:border-accent hover:text-accent"
+      >
+        Get in touch
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-5 h-5 text-text-muted/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

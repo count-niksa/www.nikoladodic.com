@@ -1,0 +1,91 @@
+---
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<nav
+  id="nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+    <a
+      href="#"
+      class="font-mono text-sm font-medium text-accent tracking-wider"
+    >
+      ND<span class="cursor-blink">_</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((link, i) => (
+        <a
+          href={link.href}
+          class="text-sm text-text-muted hover:text-accent transition-colors duration-200 font-mono"
+        >
+          <span class="text-accent">0{i + 1}.</span> {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile toggle -->
+    <button
+      id="mobile-toggle"
+      class="md:hidden text-text-muted hover:text-accent transition-colors"
+      aria-label="Toggle navigation"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          id="menu-icon"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden px-6 pb-4 border-b border-border bg-bg/95 backdrop-blur-md"
+  >
+    {links.map((link, i) => (
+      <a
+        href={link.href}
+        class="mobile-link block py-3 text-sm text-text-muted hover:text-accent transition-colors font-mono"
+      >
+        <span class="text-accent">0{i + 1}.</span> {link.label}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById("nav")!;
+  const toggle = document.getElementById("mobile-toggle")!;
+  const menu = document.getElementById("mobile-menu")!;
+
+  // Scroll effect
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      nav.classList.add("bg-bg/90", "backdrop-blur-md", "border-b", "border-border");
+    } else {
+      nav.classList.remove("bg-bg/90", "backdrop-blur-md", "border-b", "border-border");
+    }
+  });
+
+  // Mobile toggle
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+  // Close on link click
+  menu.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => menu.classList.add("hidden"));
+  });
+</script>

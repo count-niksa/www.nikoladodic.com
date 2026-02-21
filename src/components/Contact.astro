@@ -1,0 +1,76 @@
+---
+const links = [
+  {
+    label: "Email",
+    href: "mailto:nikola.dodic.dev@gmail.com",
+    display: "nikola.dodic.dev@gmail.com",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/nikola-dodic-dev",
+    display: "nikola-dodic-dev",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />`,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/count-niksa",
+    display: "count-niksa",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />`,
+  },
+];
+---
+
+<section id="contact" class="py-24 md:py-32 px-6">
+  <div class="mx-auto max-w-2xl text-center">
+    <div class="reveal">
+      <p class="font-mono text-accent text-sm mb-2">04. Contact</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-text-heading mb-4">
+        Let's connect
+      </h2>
+      <p class="text-text-muted mb-12 max-w-lg mx-auto">
+        I'm always open to discussing new opportunities, interesting projects,
+        or ways to collaborate. Reach out — I'll get back to you.
+      </p>
+    </div>
+
+    <div class="reveal space-y-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          target={link.href.startsWith("mailto") ? undefined : "_blank"}
+          rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+          class="group flex items-center gap-4 rounded-xl border border-border bg-bg-card p-5 transition-all duration-200 hover:border-accent/30 hover:bg-bg-card-hover"
+        >
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+            <svg
+              class="w-5 h-5 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              set:html={link.icon}
+            />
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-mono text-text-muted uppercase tracking-wider">{link.label}</p>
+            <p class="text-sm text-text-heading group-hover:text-accent transition-colors">{link.display}</p>
+          </div>
+          <svg
+            class="w-4 h-4 text-text-muted/40 ml-auto group-hover:text-accent group-hover:translate-x-1 transition-all"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 px-6 border-t border-border">
+  <p class="text-center text-xs font-mono text-text-muted/40">
+    &copy; {new Date().getFullYear()} Nikola Dodic. Built with Astro.
+  </p>
+</footer>

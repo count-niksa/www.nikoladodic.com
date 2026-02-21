@@ -1,0 +1,96 @@
+---
+const jobs = [
+  {
+    company: "Voice Systems Engineering",
+    role: "Tech Team Lead Software Developer",
+    period: "Sep 2023 — Present",
+    location: "Pennsylvania, US",
+    description:
+      "Leading a development team building enterprise voice and communications systems. Driving architecture decisions, code quality standards, and technical direction across the engineering org.",
+    highlight: true,
+  },
+  {
+    company: "Voice Systems Engineering, Inc.",
+    role: "Senior Software Developer",
+    period: "Aug 2020 — Sep 2023",
+    location: "Philadelphia, PA",
+    description:
+      "Designed and implemented core platform features in C#/.NET on Azure. Owned full delivery cycle from requirements through production deployment.",
+  },
+  {
+    company: "Sobot Software",
+    role: "Senior Developer → Team Lead",
+    period: "Jul 2018 — Jun 2020",
+    location: "Belgrade, Serbia",
+    description:
+      "Promoted from developer to team lead within 8 months. Managed a team delivering client-facing software products while maintaining hands-on development responsibilities.",
+  },
+  {
+    company: "Intelisale",
+    role: "Software Developer",
+    period: "Mar 2017 — Jul 2018",
+    location: "Belgrade, Serbia",
+    description:
+      "Built sales intelligence platform features. First full-time development role after completing self-taught transition into software engineering.",
+  },
+  {
+    company: "Earlier Career",
+    role: "Systems Engineer · Freelance Developer · Emirates Airline",
+    period: "2008 — 2017",
+    location: "Dubai · Belgrade · Remote",
+    description:
+      "Systems engineering at Saga d.o.o., freelance development on Upwork, and three years as business class cabin crew at Emirates — building the global perspective, discipline, and communication skills that now define my leadership style.",
+  },
+];
+---
+
+<section id="experience" class="py-24 md:py-32 px-6">
+  <div class="mx-auto max-w-4xl">
+    <div class="reveal">
+      <p class="font-mono text-accent text-sm mb-2">02. Experience</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-text-heading mb-12">
+        Where I've worked
+      </h2>
+    </div>
+
+    <div class="relative">
+      <!-- Timeline line -->
+      <div
+        class="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-accent via-accent-secondary to-border"
+      ></div>
+
+      <div class="space-y-10">
+        {jobs.map((job) => (
+          <div class="reveal relative pl-10">
+            {/* Timeline dot */}
+            <div
+              class:list={[
+                "absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2",
+                job.highlight
+                  ? "border-accent bg-accent/20 shadow-[0_0_12px_var(--color-accent-glow)]"
+                  : "border-border bg-bg-card",
+              ]}
+            />
+
+            <div
+              class:list={[
+                "rounded-xl border p-6 transition-colors duration-200",
+                job.highlight
+                  ? "border-accent/30 bg-bg-card hover:bg-bg-card-hover"
+                  : "border-border bg-bg-card hover:bg-bg-card-hover",
+              ]}
+            >
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                <h3 class="text-lg font-bold text-text-heading">{job.company}</h3>
+                <span class="font-mono text-xs text-text-muted">{job.period}</span>
+              </div>
+              <p class="text-accent font-medium text-sm mb-1">{job.role}</p>
+              <p class="font-mono text-xs text-text-muted/60 mb-3">{job.location}</p>
+              <p class="text-text-muted text-sm leading-relaxed">{job.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
