@@ -78,7 +78,7 @@ const links = [
     } else {
       nav.classList.remove("bg-bg/90", "backdrop-blur-md", "border-b", "border-border");
     }
-  });
+  }, { passive: true });
 
   // Mobile toggle
   toggle.addEventListener("click", () => {
